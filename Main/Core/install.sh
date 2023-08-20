@@ -1,14 +1,12 @@
 #!/bin/bash
 
-wget -O Init https://raw.githubusercontent.com/Robobo2022/Terminal/main/Main/Core/Init.py
+# Clone the repository
+git clone https://github.com/Robobo2022/Terminal.git ~/custom_scripts/RoboboTerminal
 
-chmod +x Init
+# Make the Init.py script executable
+chmod +x ~/custom_scripts/RoboboTerminal/Main/Core/Init.py
 
-mkdir -p ~/custom_scripts
-mv Init ~/custom_scripts/
-
-# Add the directory to PATH
-echo 'export PATH="$HOME/custom_scripts:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+# Add the directory containing the script to PATH
+echo 'export PATH="$HOME/custom_scripts/RoboboTerminal/Main/Core:$PATH"' >> ~/.bashrc
 
 echo "Installation completed. You can now use the 'Init' terminal command."
