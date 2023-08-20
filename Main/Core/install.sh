@@ -3,10 +3,8 @@
 # Download the remote script
 wget -O Init.py https://raw.githubusercontent.com/Robobo2022/Terminal/main/Main/Core/Init.py
 
-# Make the downloaded script executable
 chmod +x Init.py
 
-# Move the script to a directory in your PATH
 mkdir -p ~/custom_scripts
 mv Init.py ~/custom_scripts/
 
