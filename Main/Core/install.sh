@@ -1,13 +1,17 @@
 #!/bin/bash
 
-# Make the script executable
-chmod +x mycommand.py
+# Download the remote script
+wget -O Init.py https://raw.githubusercontent.com/Robobo2022/Terminal/main/Main/Core/Init.py
 
-# Add script directory to PATH
-SCRIPT_DIR="$(pwd)"
-echo "export PATH=\"$SCRIPT_DIR:\$PATH\"" >> ~/.bashrc
+# Make the downloaded script executable
+chmod +x Init.py
 
-# Reload the shell configuration
+# Move the script to a directory in your PATH
+mkdir -p ~/custom_scripts
+mv Init.py ~/custom_scripts/
+
+# Add the directory to PATH
+echo "export PATH=\"$HOME/custom_scripts:\$PATH\"" >> ~/.bashrc
 source ~/.bashrc
 
-echo "Installation completed. You can now use the 'mycommand' terminal command."
+echo "Installation completed. You can now use the 'Init.py' terminal command."
