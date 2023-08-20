@@ -1,7 +1,7 @@
 Prefix = "*"
 
-def Init():
-    print("Init")
+def main():
+    print("Sippington city shall we")
 
-if __name__ == "__Init__":
-    Init()
+if __name__ == "__main__":
+    main()
