@@ -1,4 +1,4 @@
-Prefix = "*"
+#!/usr/bin/env python3
 
 def main():
     print("Sippington city shall we")
