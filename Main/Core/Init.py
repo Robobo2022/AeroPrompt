@@ -6,6 +6,7 @@ library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspat
 sys.path.append(library_parent_dir)
 
 from Library.Modules import run_path
+from Library.Modules import find_args
 
 # ANSI color codes
 COLOR_BLUE = "\033[94m"
@@ -14,11 +15,12 @@ COLOR_YELLOW = "\033[93m"
 COLOR_END = "\033[0m"
 
 def main():
+    args = find_args()
     if len(sys.argv) < 2:
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         sys.exit(1)
 
-    command = sys.argv[1].lower()
+    command = args[0]
 
     if command == "find":
         if len(sys.argv) < 4:

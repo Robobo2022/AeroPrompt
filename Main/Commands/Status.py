@@ -7,7 +7,7 @@ import requests
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
-from Library.Modules import find_additional_args
+from Library.Modules import find_args
 
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"
@@ -15,12 +15,12 @@ COLOR_RED = "\033[91m"
 COLOR_END = "\033[0m"
 
 def main():
-    additional_args = find_additional_args()
+    additional_args = find_args()
     if len(additional_args) == 1:
         link = additional_args[0]
         
         if not link.startswith("http://") and not link.startswith("https://"):
-            link = "http://" + link  # Add http:// prefix if not provided
+            link = "http://" + link 
         
         try:
             response = requests.get(link)

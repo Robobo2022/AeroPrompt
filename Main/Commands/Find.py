@@ -5,7 +5,7 @@ import os
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
-from Library.Modules import find_additional_args
+from Library.Modules import find_args
 from Library.Modules import requests
 from Library.Modules import BeautifulSoup
 from Library.Modules import json
@@ -14,10 +14,10 @@ COLOR_GREEN = "\033[92m"
 COLOR_END = "\033[0m"
 
 def main():
-    additional_args = find_additional_args()
-    if len(additional_args) >= 2:
-        first_arg = additional_args[0]
-        num_links = int(additional_args[1])
+    args = find_args()
+    if len(args) >= 2:
+        first_arg = args[0]
+        num_links = int(args[1])
         github = requests.get(f"https://github.com/search?q={first_arg}&type=repositories")
         soup = BeautifulSoup(github.text, "html.parser")
         json_data = soup.text[soup.text.find('{'):]

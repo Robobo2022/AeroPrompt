@@ -6,7 +6,7 @@ import os
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
-from Library.Modules import find_additional_args
+from Library.Modules import find_args
 from Library.Modules import subprocess
 from Library.Modules import requests
 from Library.Modules import BeautifulSoup
@@ -41,9 +41,9 @@ def install_package_with_git(package_name):
         print(f"{COLOR_RED}No Git repository found for {package_name}{COLOR_END}")
 
 def main():
-    additional_args = find_additional_args()
-    if len(additional_args) >= 1:
-        package_name = additional_args[0]
+    args = find_args()
+    if len(args) >= 1:
+        package_name = args[0]
         install_package_with_pip(package_name)
 
 if __name__ == "__main__":

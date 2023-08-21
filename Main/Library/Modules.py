@@ -13,4 +13,4 @@ sys.path.append(library_parent_dir)
 from Library.path import *
 from Library.args import *
 
-__all__ = ["os", "subprocess", "sys", "find_path" "run_path", "find_additional_args", "requests", "bs4", "json", "time"]
+__all__ = ["os", "subprocess", "sys", "find_path" "run_path", "find_args", "requests", "bs4", "json", "time"]
