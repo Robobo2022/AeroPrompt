@@ -16,6 +16,8 @@ def main():
 
     if command == "find":
         run_path("Find.py")
+    elif command == "install":
+        run_path("Install.py")
     elif command == "help":
         print("Commands:")
         print("Find <search_query> <num_links>")
