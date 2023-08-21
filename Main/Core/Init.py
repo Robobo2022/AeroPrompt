@@ -18,7 +18,6 @@ def main():
     if len(args) < 1:
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}<command>{COLOR_END} {COLOR_YELLOW}[args]{COLOR_END}")
         sys.exit(1)
-
     command = args[0]
 
     if command == "find":
@@ -41,11 +40,18 @@ def main():
     elif command == "zip":
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Zip {COLOR_YELLOW}<zip_file>{COLOR_END}")
-        run_path("File/Zip.py")
+        else:
+            run_path("File/Zip.py")
     elif command == "unzip":
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Unzip {COLOR_YELLOW}<zip_file>{COLOR_END}")
-        run_path("File/Unzip.py")
+        else:
+            run_path("File/Unzip.py")
+    elif command == "iplookup":
+        if len(args) < 2:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Iplookup {COLOR_YELLOW}<ip_address>{COLOR_END}")
+        else:
+            run_path("Iplookup.py")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         print(f"{COLOR_GREEN}Commands:{COLOR_END}")
@@ -57,6 +63,10 @@ def main():
         print(f"      {COLOR_BLUE}Check the status of a link.{COLOR_END}")
         print(f"  {COLOR_YELLOW}uname{COLOR_END}")
         print(f"      {COLOR_BLUE}Prints system information.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}zip <zip_file>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Zip a file.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}unzip <zip_file>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Unzip a file.{COLOR_END}")
     else:
         print("Unknown command")
 

@@ -15,9 +15,9 @@ COLOR_RED = "\033[91m"
 COLOR_END = "\033[0m"
 
 def main():
-    additional_args = find_args()
-    if len(additional_args) == 1:
-        link = additional_args[0]
+    args = find_args()
+    if len(args) != 1:
+        link = args[0]
         
         if not link.startswith("http://") and not link.startswith("https://"):
             link = "http://" + link 

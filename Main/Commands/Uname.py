@@ -2,6 +2,7 @@
 
 import os
 import platform
+import socket
 
 def get_system_info():
     info = {}
@@ -12,6 +13,8 @@ def get_system_info():
     info["Architecture"] = platform.machine()
     info["Processor"] = platform.processor()
     info["Home Directory"] = os.path.expanduser("~")
+    info["Current Directory"] = os.getcwd()
+    info["IP Address"] = socket.gethostbyname(socket.gethostname())
 
     return info
 

@@ -5,6 +5,7 @@ import os
 library_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Library"))
 sys.path.append(library_dir)
 from Modules import zipfile
+from Modules import find_args
 
 COLOR_BLUE = "\033[94m"
 COLOR_GREEN = "\033[92m"
@@ -13,10 +14,9 @@ COLOR_RED = "\033[91m"
 COLOR_END = "\033[0m"
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit(1)
-
-    zip_file_to_extract = sys.argv[1]
+    args = find_args()
+    if len(args) == 1:
+        zip_file_to_extract = args[0]
 
     if not os.path.exists(zip_file_to_extract):
         print(f"{COLOR_RED}Error: Zip file '{zip_file_to_extract}' not found.{COLOR_END}")
