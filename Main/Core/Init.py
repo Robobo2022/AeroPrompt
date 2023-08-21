@@ -8,7 +8,6 @@ sys.path.append(library_parent_dir)
 from Library.Modules import run_path
 from Library.Modules import find_args
 
-# ANSI color codes
 COLOR_BLUE = "\033[94m"
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"
@@ -16,24 +15,29 @@ COLOR_END = "\033[0m"
 
 def main():
     args = find_args()
-    if len(sys.argv) < 2:
-        print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
+    if len(args) < 1:
+        print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}<command>{COLOR_END} {COLOR_YELLOW}[args]{COLOR_END}")
         sys.exit(1)
 
     command = args[0]
 
     if command == "find":
-        if len(sys.argv) < 4:
+        if len(args) < 4:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Find {COLOR_YELLOW}<search_query> <num_links>{COLOR_END}")
-        run_path("Find.py")
+        else:
+            run_path("Find.py")
     elif command == "install":
-        if len(sys.argv) < 3:
+        if len(args) < 3:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Install {COLOR_YELLOW}<package_name>{COLOR_END}")
-        run_path("Install.py")
+        else:
+            run_path("Install.py")
     elif command == "status":
-        if len(sys.argv) < 3:
+        if len(args) < 3:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Status {COLOR_YELLOW}<link>{COLOR_END}")
-        run_path("Status.py")
+        else:
+            run_path("Status.py")
+    elif command == "uname":
+        run_path("Uname.py")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         print(f"{COLOR_GREEN}Commands:{COLOR_END}")
