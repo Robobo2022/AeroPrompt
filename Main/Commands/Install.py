@@ -45,8 +45,6 @@ def main():
     if len(additional_args) >= 1:
         package_name = additional_args[0]
         install_package_with_pip(package_name)
-    else:
-        print(f"Usage: {COLOR_GREEN}Install {COLOR_YELLOW}<package_name>{COLOR_END}")
 
 if __name__ == "__main__":
     main()

@@ -21,10 +21,16 @@ def main():
     command = sys.argv[1].lower()
 
     if command == "find":
+        if len(sys.argv) < 4:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Find {COLOR_YELLOW}<search_query> <num_links>{COLOR_END}")
         run_path("Find.py")
     elif command == "install":
+        if len(sys.argv) < 3:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Install {COLOR_YELLOW}<package_name>{COLOR_END}")
         run_path("Install.py")
     elif command == "status":
+        if len(sys.argv) < 3:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Status {COLOR_YELLOW}<link>{COLOR_END}")
         run_path("Status.py")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")

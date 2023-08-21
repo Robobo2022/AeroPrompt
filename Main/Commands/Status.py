@@ -16,8 +16,12 @@ COLOR_END = "\033[0m"
 
 def main():
     additional_args = find_additional_args()
-    if len(additional_args) >= 1:
+    if len(additional_args) == 1:
         link = additional_args[0]
+        
+        if not link.startswith("http://") and not link.startswith("https://"):
+            link = "http://" + link  # Add http:// prefix if not provided
+        
         try:
             response = requests.get(link)
         except requests.exceptions.RequestException:
@@ -30,9 +34,9 @@ def main():
         elif response.status_code >= 400 and response.status_code < 500:
             print(f"{COLOR_RED}Client Error!{COLOR_END}")
         elif response.status_code >= 500:
-            print(f"{COLOR_RED}31mServer Error!{COLOR_END}")
-    else:
-        print("Usage: ping <link>")
+            print(f"{COLOR_RED}Server Error!{COLOR_END}")
 
 if __name__ == "__main__":
     main()
+
+        

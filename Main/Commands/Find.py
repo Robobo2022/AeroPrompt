@@ -10,6 +10,9 @@ from Library.Modules import requests
 from Library.Modules import BeautifulSoup
 from Library.Modules import json
 
+COLOR_GREEN = "\033[92m"
+COLOR_END = "\033[0m"
+
 def main():
     additional_args = find_additional_args()
     if len(additional_args) >= 2:
@@ -25,10 +28,8 @@ def main():
             if i >= num_links:
                 break
             name = result.get("hl_name", "")
-            repo_link = f"https://github.com/{name}"
+            repo_link = f"{COLOR_GREEN}https://github.com/{name}{COLOR_END}"
             print(repo_link)
-    else:
-        print("Usage: Find <search_query> <num_links>")
 
 if __name__ == "__main__":
     main()
