@@ -6,8 +6,7 @@ def find_additional_args():
     if len(sys.argv) < 2:
         sys.exit(1)
 
-    additional_args = sys.argv[1:]
-    return tuple(additional_args)
+    return sys.argv[1:]
 
 if __name__ == "__main__":
     additional_args = find_additional_args()

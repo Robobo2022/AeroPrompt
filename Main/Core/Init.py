@@ -5,17 +5,18 @@ import os
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
-from Library.Modules import run_subprocess_for_find
+from Library.Modules import run_path
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: Init <command> [args]")
+        print("Usage: AeroPrompt <command> [args]")
         sys.exit(1)
-    command = sys.argv[1]
 
-    if command == "Find":
-        run_subprocess_for_find()
-    elif command == "Help":
+    command = sys.argv[1].lower()
+
+    if command == "find":
+        run_path("Find.py")
+    elif command == "help":
         print("Help")
     else:
         print("Unknown command")

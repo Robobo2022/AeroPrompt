@@ -16,12 +16,16 @@ source ~/.bashrc
 
 chmod +x ~/AeroPrompt/Main/Core/Init.py
 
-ln -s ~/AeroPrompt/Main/Core/Init.py ~/AeroPrompt/Main/Core/Init
+ln -s ~/AeroPrompt/Main/Core/Init.py ~/AeroPrompt/Main/Core/AeroPrompt
 
 REQUIREMENTS_FILE="$REPO_DIR/Main/Core/requirements.txt"
 if [ -f "$REQUIREMENTS_FILE" ]; then
     echo "Installing requirements from $REQUIREMENTS_FILE..."
-    pip3 install -r "$REQUIREMENTS_FILE"
+    if pip3 install -r "$REQUIREMENTS_FILE"; then
+        echo 'AeroPrompt is ready to use.'
+    else
+        echo 'Failed to install requirements.'
+    fi
+else
+    echo "No requirements file found."
 fi
-
-echo 'AeroPrompt is ready to use.'
