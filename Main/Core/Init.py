@@ -42,6 +42,10 @@ def main():
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Zip {COLOR_YELLOW}<zip_file>{COLOR_END}")
         run_path("File/Zip.py")
+    elif command == "unzip":
+        if len(args) < 2:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Unzip {COLOR_YELLOW}<zip_file>{COLOR_END}")
+        run_path("File/Unzip.py")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         print(f"{COLOR_GREEN}Commands:{COLOR_END}")
