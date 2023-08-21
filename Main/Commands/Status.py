@@ -9,6 +9,11 @@ sys.path.append(library_parent_dir)
 
 from Library.Modules import find_additional_args
 
+COLOR_GREEN = "\033[92m"
+COLOR_YELLOW = "\033[93m"
+COLOR_RED = "\033[91m"
+COLOR_END = "\033[0m"
+
 def main():
     additional_args = find_additional_args()
     if len(additional_args) >= 1:
@@ -16,16 +21,16 @@ def main():
         try:
             response = requests.get(link)
         except requests.exceptions.RequestException:
-            print("\033[31mError: Invalid link\033[0m")
+            print(f"{COLOR_RED}Error: Invalid link{COLOR_END}")
             return 
 
         print("HTTP Status Code:", response.status_code)
         if response.status_code >= 200 and response.status_code < 300:
-            print("\033[32mSuccess!\033[0m")
+            print(f"{COLOR_GREEN}Success!{COLOR_END}")
         elif response.status_code >= 400 and response.status_code < 500:
-            print("\033[33mClient Error!\033[0m")
+            print(f"{COLOR_RED}Client Error!{COLOR_END}")
         elif response.status_code >= 500:
-            print("\033[31mServer Error!\033[0m")
+            print(f"{COLOR_RED}31mServer Error!{COLOR_END}")
     else:
         print("Usage: ping <link>")
 
