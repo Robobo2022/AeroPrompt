@@ -18,10 +18,10 @@ chmod +x ~/AeroPrompt/Main/Core/Init.py
 
 ln -s ~/AeroPrompt/Main/Core/Init.py ~/AeroPrompt/Main/Core/Init
 
-echo "Installation completed. You can now use the 'Init' terminal command."
-
 REQUIREMENTS_FILE="$REPO_DIR/Main/Core/requirements.txt"
 if [ -f "$REQUIREMENTS_FILE" ]; then
     echo "Installing requirements from $REQUIREMENTS_FILE..."
     pip3 install -r "$REQUIREMENTS_FILE"
 fi
+
+echo 'AeroPrompt is ready to use.'
