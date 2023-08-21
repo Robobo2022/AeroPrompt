@@ -67,6 +67,8 @@ def main():
         print(f"      {COLOR_BLUE}Zip a file.{COLOR_END}")
         print(f"  {COLOR_YELLOW}unzip <zip_file>{COLOR_END}")
         print(f"      {COLOR_BLUE}Unzip a file.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}iplookup <ip_address>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Lookup information about an IP address.{COLOR_END}")
     else:
         print("Unknown command")
 
