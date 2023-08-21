@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 
 import sys
+import os
+library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.append(library_parent_dir)
+
+from Library.Modules import find_additional_args
 
 def main():
-    if len(sys.argv) < 2:
-        sys.exit(1)
-    
-    additional_args = sys.argv[1:]
-    if additional_args:
-        first_arg = additional_args[0]
-        print(f"Prefix script executed with first additional arg: {first_arg}")
+    first_arg = find_additional_args()
+    if first_arg:
+        print(first_arg)
     else:
         print("No additional args provided")
 

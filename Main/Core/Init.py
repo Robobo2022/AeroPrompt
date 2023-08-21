@@ -2,9 +2,7 @@
 
 import sys
 import os
-
-script_directory = os.path.dirname(os.path.abspath(__file__))
-library_parent_dir = os.path.abspath(os.path.join(script_directory, ".."))
+library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
 from Library.Modules import run_subprocess_for_find

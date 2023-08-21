@@ -1,7 +1,6 @@
 #!/bin/bash
 
 REPO_URL="https://github.com/Robobo2022/AeroPrompt.git"
-
 REPO_DIR=~/AeroPrompt
 
 if [ -d "$REPO_DIR" ]; then
@@ -21,4 +20,8 @@ ln -s ~/AeroPrompt/Main/Core/Init.py ~/AeroPrompt/Main/Core/Init
 
 echo "Installation completed. You can now use the 'Init' terminal command."
 
-
+REQUIREMENTS_FILE="$REPO_DIR/Main/Core/requirements.txt"
+if [ -f "$REQUIREMENTS_FILE" ]; then
+    echo "Installing requirements from $REQUIREMENTS_FILE..."
+    pip3 install -r "$REQUIREMENTS_FILE"
+fi
