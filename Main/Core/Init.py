@@ -38,6 +38,10 @@ def main():
             run_path("Status.py")
     elif command == "uname":
         run_path("Uname.py")
+    elif command == "zip":
+        if len(args) < 2:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Zip {COLOR_YELLOW}<zip_file>{COLOR_END}")
+        run_path("File/Zip.py")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         print(f"{COLOR_GREEN}Commands:{COLOR_END}")

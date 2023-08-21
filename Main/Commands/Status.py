@@ -2,12 +2,12 @@
 
 import sys
 import os
-import requests
 
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
 from Library.Modules import find_args
+from Library.Modules import requests
 
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"

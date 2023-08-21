@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
+import zipfile
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
