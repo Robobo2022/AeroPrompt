@@ -1,0 +1,12 @@
+{
+    "Title": {
+        "Usage": "Usage: test [options] [args]",
+        "Description": "This is a test command",
+        "File": "test.py"
+    },
+    "Title2": {
+        "Usage": "Usage: test [options] [args]",
+        "Description": "This is a test command",
+        "File": "test2.py"
+    }
+}

@@ -7,6 +7,7 @@ sys.path.append(library_parent_dir)
 
 from Library.Modules import run_path
 from Library.Modules import find_args
+from Library.Modules import json
 
 COLOR_BLUE = "\033[94m"
 COLOR_GREEN = "\033[92m"
@@ -52,11 +53,21 @@ def main():
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Iplookup {COLOR_YELLOW}<ip_address>{COLOR_END}")
         else:
             run_path("Iplookup.py")
+    elif command == "custom":
+        json_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Custom", "Commands.json")
+        with open(json_file_path, 'r') as json_file:
+            data = json.load(json_file)
+            for title, command_info in data.items():
+                usage = command_info["Usage"]
+                description = command_info["Description"]
+                print(f"{COLOR_YELLOW}{title}{COLOR_END}")
+                print(f"  {COLOR_BLUE}{usage}{COLOR_END}")
+                print(f"      {COLOR_BLUE}{description}{COLOR_END}")
     elif command == "help":
         print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} <command> [args]")
         print(f"{COLOR_GREEN}Commands:{COLOR_END}")
         print(f"  {COLOR_YELLOW}find <search_query> <num_links>{COLOR_END}")
-        print(f"      {COLOR_BLUE}Search for links based on a query.{COLOR_END}")
+        print(f"      {COLOR_BLUE}Search for Github repository's based on a query.{COLOR_END}")
         print(f"  {COLOR_YELLOW}install <package_name>{COLOR_END}")
         print(f"      {COLOR_BLUE}Install a package.{COLOR_END}")
         print(f"  {COLOR_YELLOW}Status <link>{COLOR_END}")
@@ -69,6 +80,8 @@ def main():
         print(f"      {COLOR_BLUE}Unzip a file.{COLOR_END}")
         print(f"  {COLOR_YELLOW}iplookup <ip_address>{COLOR_END}")
         print(f"      {COLOR_BLUE}Lookup information about an IP address.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}custom{COLOR_END}")
+        print(f"      {COLOR_BLUE}List custom commands.{COLOR_END}")
     else:
         print("Unknown command")
 
