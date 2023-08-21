@@ -17,7 +17,8 @@ def main():
     if command == "find":
         run_path("Find.py")
     elif command == "help":
-        print("Help")
+        print("Commands:")
+        print("Find <search_query> <num_links>")
     else:
         print("Unknown command")
 
