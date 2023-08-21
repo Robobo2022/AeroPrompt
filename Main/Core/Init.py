@@ -22,17 +22,17 @@ def main():
     command = args[0]
 
     if command == "find":
-        if len(args) < 4:
+        if len(args) < 3:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Find {COLOR_YELLOW}<search_query> <num_links>{COLOR_END}")
         else:
             run_path("Find.py")
     elif command == "install":
-        if len(args) < 3:
+        if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Install {COLOR_YELLOW}<package_name>{COLOR_END}")
         else:
             run_path("Install.py")
     elif command == "status":
-        if len(args) < 3:
+        if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Status {COLOR_YELLOW}<link>{COLOR_END}")
         else:
             run_path("Status.py")
@@ -46,7 +46,9 @@ def main():
         print(f"  {COLOR_YELLOW}install <package_name>{COLOR_END}")
         print(f"      {COLOR_BLUE}Install a package.{COLOR_END}")
         print(f"  {COLOR_YELLOW}Status <link>{COLOR_END}")
-        print(f"      {COLOR_BLUE}Checks Status of given link.{COLOR_END}")
+        print(f"      {COLOR_BLUE}Check the status of a link.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}uname{COLOR_END}")
+        print(f"      {COLOR_BLUE}Prints system information.{COLOR_END}")
     else:
         print("Unknown command")
 
