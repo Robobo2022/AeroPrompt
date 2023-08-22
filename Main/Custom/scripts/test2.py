@@ -1,1 +1,3 @@
-print("ok2")
+#!/usr/bin/env python3
+
+print("test script <:")

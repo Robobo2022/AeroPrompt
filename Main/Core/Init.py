@@ -2,6 +2,7 @@
 
 import sys
 import os
+
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
@@ -12,7 +13,11 @@ from Library.Modules import json
 COLOR_BLUE = "\033[94m"
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"
+COLOR_RED = "\033[91m"
 COLOR_END = "\033[0m"
+
+Custom_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Custom")
+json_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Custom", "Commands.json")
 
 def main():
     args = find_args()
@@ -54,7 +59,6 @@ def main():
         else:
             run_path("Iplookup.py")
     elif command == "custom":
-        json_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Custom", "Commands.json")
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
             for title, command_info in data.items():
@@ -83,7 +87,17 @@ def main():
         print(f"  {COLOR_YELLOW}custom{COLOR_END}")
         print(f"      {COLOR_BLUE}List custom commands.{COLOR_END}")
     else:
-        print("Unknown command")
+        with open(json_file_path, 'r') as json_file:
+            data = json.load(json_file)
+            lowercase_command = command.lower()
+            for title, command_info in data.items():
+                lowercase_title = title.lower()
+                if lowercase_command == lowercase_title:
+                    run_path(Custom_path + "/" + "scripts/" + command_info["File"])
+                    break
+            else:
+                print(f"{COLOR_RED}Command '{command}' not found. {COLOR_END}")
+
 
 if __name__ == "__main__":
     main()
