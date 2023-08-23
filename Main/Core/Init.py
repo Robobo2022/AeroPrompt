@@ -63,6 +63,11 @@ def main():
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Iplookup {COLOR_YELLOW}<ip_address>{COLOR_END}")
         else:
             run_path("Iplookup.py")
+    elif command == "dnslookup":
+        if len(args) < 2:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Dnslookup {COLOR_YELLOW}<domain_name>{COLOR_END}")
+        else:
+            run_path("Dnslookup.py")
     elif command == "custom":
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
@@ -83,6 +88,8 @@ def main():
         print(f"      {COLOR_BLUE}Uninstall a package.{COLOR_END}")
         print(f"  {COLOR_YELLOW}Status <link>{COLOR_END}")
         print(f"      {COLOR_BLUE}Check the status of a link.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}dnslookup <domain_name>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Lookup DNS information about a domain.{COLOR_END}")
         print(f"  {COLOR_YELLOW}uname{COLOR_END}")
         print(f"      {COLOR_BLUE}Prints system information.{COLOR_END}")
         print(f"  {COLOR_YELLOW}zip <zip_file>{COLOR_END}")
