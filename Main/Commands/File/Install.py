@@ -17,17 +17,18 @@ COLOR_YELLOW = "\033[93m"
 COLOR_RED = "\033[91m"
 COLOR_END = "\033[0m"
 
-def install_package_with_pip(package_name):
+def install_package(package_name):
+    if try_pip(package_name) or try_wget(package_name) or try_curl(package_name) or try_github(package_name):
+        print(f"{COLOR_GREEN}Package {package_name} successfully downloaded{COLOR_END}")
+
+def try_pip(package_name):
     try:
         subprocess.run(["pip3", "install", package_name], check=True)
         print(f"{COLOR_GREEN}Successfully installed {package_name} using pip3{COLOR_END}")
+        return True
     except subprocess.CalledProcessError:
         print(f"{COLOR_RED}pip3 installation of {package_name} failed, attempting other methods...{COLOR_END}")
-        install_package_using_alternatives(package_name)
-
-def install_package_using_alternatives(package_name):
-    if try_wget(package_name) or try_curl(package_name) or try_github(package_name):
-        print(f"{COLOR_GREEN}Package {package_name} successfully downloaded{COLOR_END}")
+        return False
 
 def try_wget(package_name):
     print(f"Trying to download using wget: {COLOR_YELLOW}{package_name}{COLOR_END}")
@@ -66,7 +67,7 @@ def main():
     args = find_args()
     if len(args) >= 1:
         package_name = args[0]
-        install_package_with_pip(package_name)
+        install_package(package_name)
 
 if __name__ == "__main__":
     main()
