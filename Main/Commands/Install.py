@@ -28,8 +28,8 @@ def install_package_with_pip(package_name):
 def install_package_using_alternatives(package_name):
     if try_wget(package_name) or try_curl(package_name) or try_github(package_name):
         print(f"{COLOR_GREEN}Package {package_name} successfully downloaded{COLOR_END}")
-    else:
-        print(f"{COLOR_RED}Failed to download {package_name}{COLOR_END}")
+    elif subprocess.CalledProcessError:
+        print(f"{COLOR_RED}Installation of {package_name} failed{COLOR_END}")
 
 def try_wget(package_name):
     print(f"Trying to download using wget: {COLOR_YELLOW}{package_name}{COLOR_END}")
