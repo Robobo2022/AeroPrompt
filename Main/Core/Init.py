@@ -79,6 +79,8 @@ def main():
         print(f"      {COLOR_BLUE}Search for Github repository's based on a query.{COLOR_END}")
         print(f"  {COLOR_YELLOW}install <package_name>{COLOR_END}")
         print(f"      {COLOR_BLUE}Install a package.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}uninstall <package_name>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Uninstall a package.{COLOR_END}")
         print(f"  {COLOR_YELLOW}Status <link>{COLOR_END}")
         print(f"      {COLOR_BLUE}Check the status of a link.{COLOR_END}")
         print(f"  {COLOR_YELLOW}uname{COLOR_END}")
