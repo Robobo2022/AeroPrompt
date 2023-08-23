@@ -48,13 +48,19 @@ def try_curl(package_name):
         return False
 
 def try_github(package_name):
-    repo_link = f"https://github.com/{package_name}.git"
-    print(f"Trying to download from GitHub: {COLOR_YELLOW}{repo_link}{COLOR_END}")
-    try:
-        subprocess.run(["git", "clone", repo_link], check=True)
-        return True
-    except subprocess.CalledProcessError:
-        return False
+    github = requests.get(f"https://github.com/search?q={package_name}&type=repositories")
+    soup = BeautifulSoup(github.text, "html.parser")
+    json_data = soup.text[soup.text.find('{'):]
+    data = json.loads(json_data)
+    results = data.get("payload", {}).get("results", [])
+    if results:
+        name = results[0].get("hl_name", "")
+        repo_link = f"https://github.com/{name}.git"
+        print(f"Cloning {COLOR_YELLOW}{repo_link}{COLOR_END}...")
+        subprocess.run(["git", "clone", repo_link])
+        print(f"{COLOR_GREEN}Successfully cloned {repo_link}{COLOR_END}")
+    else:
+        print(f"{COLOR_RED}No Git repository found for {package_name}{COLOR_END}")
 
 def main():
     args = find_args()

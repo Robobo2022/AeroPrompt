@@ -2,12 +2,12 @@
 
 import sys
 import os
-import requests
 library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.append(library_parent_dir)
 
 from Library.Modules import find_args
 from Library.Modules import socket
+from Library.Modules import requests
 
 def lookup_ip_info(ip_address):
     try:

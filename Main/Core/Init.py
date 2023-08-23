@@ -36,6 +36,11 @@ def main():
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Install {COLOR_YELLOW}<package_name>{COLOR_END}")
         else:
             run_path("Install.py")
+    elif command == "uninstall":
+        if len(args) < 2:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Uninstall {COLOR_YELLOW}<package_name>{COLOR_END}")
+        else:
+            run_path("Uninstall.py")
     elif command == "status":
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Status {COLOR_YELLOW}<link>{COLOR_END}")
