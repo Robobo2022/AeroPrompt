@@ -2,8 +2,10 @@
 
 import sys
 import os
+
 library_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Library"))
 sys.path.append(library_dir)
+
 from Modules import zipfile
 from Modules import find_args
 

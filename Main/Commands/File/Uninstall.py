@@ -3,12 +3,12 @@
 import sys
 import os
 
-library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-sys.path.append(library_parent_dir)
+library_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Library"))
+sys.path.append(library_dir)
 
-from Library.Modules import find_args
-from Library.Modules import subprocess
-from Library.Modules import shutil
+from Modules import find_args
+from Modules import subprocess
+from Modules import shutil
 
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"

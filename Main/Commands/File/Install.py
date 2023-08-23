@@ -3,14 +3,14 @@
 import sys
 import os
 
-library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-sys.path.append(library_parent_dir)
+library_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Library"))
+sys.path.append(library_dir)
 
-from Library.Modules import find_args
-from Library.Modules import subprocess
-from Library.Modules import requests
-from Library.Modules import BeautifulSoup
-from Library.Modules import json
+from Modules import find_args
+from Modules import subprocess
+from Modules import requests
+from Modules import BeautifulSoup
+from Modules import json
 
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"
@@ -28,8 +28,6 @@ def install_package_with_pip(package_name):
 def install_package_using_alternatives(package_name):
     if try_wget(package_name) or try_curl(package_name) or try_github(package_name):
         print(f"{COLOR_GREEN}Package {package_name} successfully downloaded{COLOR_END}")
-    elif subprocess.CalledProcessError:
-        print(f"{COLOR_RED}Installation of {package_name} failed{COLOR_END}")
 
 def try_wget(package_name):
     print(f"Trying to download using wget: {COLOR_YELLOW}{package_name}{COLOR_END}")
@@ -37,6 +35,7 @@ def try_wget(package_name):
         subprocess.run(["wget", package_name], check=True)
         return True
     except subprocess.CalledProcessError:
+        print(f"{COLOR_RED}wget download of {package_name} failed{COLOR_END}")
         return False
 
 def try_curl(package_name):
@@ -45,6 +44,7 @@ def try_curl(package_name):
         subprocess.run(["curl", "-O", package_name], check=True)
         return True
     except subprocess.CalledProcessError:
+        print(f"{COLOR_RED}curl download of {package_name} failed{COLOR_END}")
         return False
 
 def try_github(package_name):

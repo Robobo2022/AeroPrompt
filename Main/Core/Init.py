@@ -52,12 +52,12 @@ def main():
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Zip {COLOR_YELLOW}<zip_file>{COLOR_END}")
         else:
-            run_path("File/Zip.py")
+            run_path("Zip.py")
     elif command == "unzip":
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Unzip {COLOR_YELLOW}<zip_file>{COLOR_END}")
         else:
-            run_path("File/Unzip.py")
+            run_path("Unzip.py")
     elif command == "iplookup":
         if len(args) < 2:
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Iplookup {COLOR_YELLOW}<ip_address>{COLOR_END}")

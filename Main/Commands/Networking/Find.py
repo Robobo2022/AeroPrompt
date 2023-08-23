@@ -2,13 +2,14 @@
 
 import sys
 import os
-library_parent_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-sys.path.append(library_parent_dir)
 
-from Library.Modules import find_args
-from Library.Modules import requests
-from Library.Modules import BeautifulSoup
-from Library.Modules import json
+library_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Library"))
+sys.path.append(library_dir)
+
+from Modules import find_args
+from Modules import requests
+from Modules import BeautifulSoup
+from Modules import json
 
 COLOR_GREEN = "\033[92m"
 COLOR_END = "\033[0m"
