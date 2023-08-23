@@ -68,6 +68,11 @@ def main():
             print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Dnslookup {COLOR_YELLOW}<domain_name>{COLOR_END}")
         else:
             run_path("Dnslookup.py")
+    elif command == "localserver":
+        if len(args) < 3:
+            print(f"Usage: {COLOR_BLUE}AeroPrompt{COLOR_END} {COLOR_GREEN}Localserver {COLOR_YELLOW}<folder_name>{COLOR_END} {COLOR_YELLOW}<ip_address>{COLOR_END} {COLOR_YELLOW}<port>{COLOR_END}")
+        else:
+            run_path("Localserver.py")
     elif command == "custom":
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
@@ -98,8 +103,10 @@ def main():
         print(f"      {COLOR_BLUE}Unzip a file.{COLOR_END}")
         print(f"  {COLOR_YELLOW}iplookup <ip_address>{COLOR_END}")
         print(f"      {COLOR_BLUE}Lookup information about an IP address.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}localserver <folder_name> <ip_address> <port>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Start a local web server with html and css files.{COLOR_END}")
         print(f"  {COLOR_YELLOW}custom{COLOR_END}")
-        print(f"      {COLOR_BLUE}List custom commands.{COLOR_END}")
+        print(f"      {COLOR_BLUE}List of custom commands.{COLOR_END}")
     else:
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
