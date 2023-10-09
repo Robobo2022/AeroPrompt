@@ -105,6 +105,8 @@ def main():
         print(f"      {COLOR_BLUE}Lookup information about an IP address.{COLOR_END}")
         print(f"  {COLOR_YELLOW}localserver <folder_name> <ip_address> <port>{COLOR_END}")
         print(f"      {COLOR_BLUE}Start a local web server with html and css files.{COLOR_END}")
+        print(f"  {COLOR_YELLOW}AeroPrompt-pkg <pkg-name>{COLOR_END}")
+        print(f"      {COLOR_BLUE}Install a package from the AeroPrompt-pkg repository.{COLOR_END}")
         print(f"  {COLOR_YELLOW}custom{COLOR_END}")
         print(f"      {COLOR_BLUE}List of custom commands.{COLOR_END}")
     else:
