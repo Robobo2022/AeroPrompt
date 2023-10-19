@@ -1,8 +1,5 @@
 # AeroPrompt
 
-# NOW USE [CMDR](https://github.com/Robobo2022/Cmdr)
-## this is project is discontinued use CMDR
-
 The Terminal Multi-Tool, crafted entirely in Python, is your solution for streamlined system analysis and versatile command-line tasks.
 
 ## Install AeroPrompt
